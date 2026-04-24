@@ -6,10 +6,10 @@
 
 typedef struct worker_t{
     pthread_t worker; 
-    task_queue_t queue;
+    task_queue_t queue; // each worker has its own task queue
 } worker_t;
 
-void worker_init(worker_t *w);
-void destroy(worker_t *w);
+void worker_init(worker_t *w, task_queue_t *q); // initializes a worker
+void destroy(worker_t *w); //destroys a worker.
 
 #endif
