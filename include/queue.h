@@ -6,12 +6,12 @@
 typedef struct task_t{
     void(*fn) (void *arg);
     void *arg;
-    struct task_t *next;
+    struct task_t *next; // Pointer to the next task in the queue
 
 } task_t;
 
 typedef struct task_queue_t{
-    task_t * head;
+    task_t * head; 
     task_t * tail;
     size_t size;
     size_t capacity;
@@ -23,6 +23,6 @@ typedef struct task_queue_t{
 
 void queue_init(task_queue_t *q, size_t capacity);//initializes a queue
 void queue_push(task_queue_t *q,task_t *task); //pushes a task in the queue
-void queue_pop(task_queue_t *q); // pops a  task from the queue
+task_t *queue_pop(task_queue_t *q); // pops a task from the queue
 void queue_destroy(task_queue_t *q); // destroys a queue
 #endif
